@@ -9,8 +9,8 @@
   Instructor Count is <%= @instructors.uniq.count %><br />
   <% if (@total_booked_spots != 0 ) && (@total_open_spots != 0) %>
   <%= "#{(@total_booked_spots / (@total_booked_spots + @total_open_spots) * 100).to_i}% full" %>
-  <% end %>
   <br />
+  <% end %>
   <br />
   Instructors:<br/>
   <% @instructors.uniq.each do |i| %>
@@ -21,5 +21,7 @@
     <br/>
     <% end %>
   <% end %>
+  <br />
+  <a href="/">Back</a>
 </body>
 </html>
