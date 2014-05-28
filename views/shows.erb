@@ -15,7 +15,10 @@
   Instructors:<br/>
   <% @instructors.uniq.each do |i| %>
     <% if i != "Cancelled Today" %>
-    <%= "#{i}" %><br />
+    <a href=<%="https://www.facebook.com/search/str/#{URI.escape(i)}/users-named"%> target="_blank">
+        <%= i %>
+    </a>
+    <br/>
     <% end %>
   <% end %>
 </body>

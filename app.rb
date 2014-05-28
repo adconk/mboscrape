@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'capybara/poltergeist'
+require 'uri'
 
 get '/' do
   erb :input
@@ -59,6 +60,6 @@ post '/' do
 
   @total_booked_spots = @booked_spots.map(&:to_f).reduce(:+)
   @total_open_spots = @open_spots.map(&:to_f).reduce(:+)
-  
+
   erb :shows
 end
