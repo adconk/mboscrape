@@ -5,39 +5,18 @@
   <title>Studio Stats</title>
 </head>
 <body>
-  <table>
-    <thead>
-      <tr>
-        <th>Counts</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <%= "Weekly Classes: #{@classes.count}" %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <%= "Instructors: #{@instructors.uniq.count}" %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  Total Weekly Classes is <%= @classes.count %><br />
+  Instructor Count is <%= @instructors.uniq.count %><br />
+  <% if (@total_booked_spots != 0 ) && (@total_open_spots != 0) %>
+  <%= "#{(@total_booked_spots / (@total_booked_spots + @total_open_spots) * 100).to_i}% full" %>
+  <% end %>
   <br />
-  <table>
-    <thead>
-      <tr>
-        <th>Instructors</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @instructors.uniq.each do |i| %>
-      <tr>
-        <td><%= "#{i}" %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <br />
+  Instructors:<br/>
+  <% @instructors.uniq.each do |i| %>
+    <% if i != "Cancelled Today" %>
+    <%= "#{i}" %><br />
+    <% end %>
+  <% end %>
 </body>
 </html>
