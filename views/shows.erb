@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>Studio Stats</title>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Counts</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <%= "Weekly Classes: #{@classes.count}" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= "Instructors: #{@instructors.uniq.count}" %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+  <table>
+    <thead>
+      <tr>
+        <th>Instructors</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @instructors.uniq.each do |i| %>
+      <tr>
+        <td><%= "#{i}" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</body>
+</html>
