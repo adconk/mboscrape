@@ -14,6 +14,7 @@ post '/' do
   session.visit "https://clients.mindbodyonline.com/ASP/home.asp?studioid=#{params[:id]}"
   sleep 4
   begin
+    @title = session.title.sub(" Online","")
     mbo_studio_page = session.within_frame 'mainFrame' do
       Nokogiri::HTML(session.html)
     end
