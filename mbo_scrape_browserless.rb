@@ -5,6 +5,7 @@ session = Capybara::Session.new(:poltergeist)
 session.visit "https://clients.mindbodyonline.com/ASP/home.asp?studioid=#{@mbo_id}"
 sleep 4
 
+title = session.title.sub(" Online","")
 mbo_studio_page = session.within_frame 'mainFrame' do
   Nokogiri::HTML(session.html)
 end
@@ -54,6 +55,8 @@ end
 total_booked_spots = booked_spots.map(&:to_f).reduce(:+)
 total_open_spots = open_spots.map(&:to_f).reduce(:+)
 
+
+puts "#{title}"
 puts "Total Weekly Classes is #{classes.count}"
 puts "Instructor Count is #{instructors.uniq.count}"
 if (total_booked_spots != 0 ) && (total_open_spots != 0)
