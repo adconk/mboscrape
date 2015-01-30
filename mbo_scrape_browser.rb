@@ -5,7 +5,7 @@ require 'watir-webdriver'
 
 @mbo_id = ARGV[0]
 browser = Watir::Browser.new :firefox
-browser.goto "https://clients.mindbodyonline.com/ASP/home.asp?studioid=#{@mbo_id}"
+browser.goto "https://clients.mindbodyonline.com/classic/home?studioid=#{@mbo_id}"
 sleep 4
 
 data = Nokogiri::HTML(browser.frame(:name => "mainFrame").html)

@@ -2,7 +2,7 @@ require 'capybara/poltergeist'
 session = Capybara::Session.new(:poltergeist)
 
 @mbo_id = ARGV[0]
-session.visit "https://clients.mindbodyonline.com/ASP/home.asp?studioid=#{@mbo_id}"
+session.visit "https://clients.mindbodyonline.com/classic/home?studioid=#{@mbo_id}"
 sleep 4
 
 title = session.title.sub(" Online","")
