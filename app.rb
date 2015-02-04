@@ -15,7 +15,7 @@ post '/' do
   puts "*****Start session HTML*******"
   puts session.html
   puts "*****End session HTML*******"
-  #begin
+  begin
     @title = session.title.sub(" Online","")
 
     puts "Grabbing the main web frame..."
@@ -74,7 +74,7 @@ post '/' do
     puts "ready to return view..."
 
     erb :shows
-  #rescue
-  #  erb :noresult
-  #end
+  rescue
+    erb :noresult
+  end
 end
