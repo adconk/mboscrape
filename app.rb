@@ -13,11 +13,15 @@ post '/' do
   #@mbo_id = '3954'
   session.visit "https://clients.mindbodyonline.com/classic/home?studioid=#{params[:id]}"
   sleep 6
+  puts "*****Start session HTML*******"
+  puts session.html
+  puts "*****End session HTML*******"
   #begin
     @title = session.title.sub(" Online","")
 
     puts "Grabbing the main web frame..."
-    mbo_studio_page = session.within_frame 'mainFrame' do
+
+    mbo_studio_page = session.within_frame "mainFrame" do
       Nokogiri::HTML(session.html)
     end
     even_rows = mbo_studio_page.css('.evenRow')
