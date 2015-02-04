@@ -16,11 +16,15 @@ post '/' do
   sleep 4
   begin
     @title = session.title.sub(" Online","")
+
+    puts "Grabbing the main web frame...."
     mbo_studio_page = session.within_frame 'mainFrame' do
       Nokogiri::HTML(session.html)
     end
     even_rows = mbo_studio_page.css('.evenRow')
     odd_rows = mbo_studio_page.css('.oddRow')
+
+    puts "Grabbing rows of classes...."
 
     @instructors = Array.new
     @classes = Array.new
@@ -59,6 +63,9 @@ post '/' do
         @open_spots.push(er.css('td')[1].text.scan(/\d+/).map(&:to_i)[1])
       end
     end
+
+    puts "splitting out instructors, classes, and rsvp counts...."
+
     @total_booked_spots = @booked_spots.map(&:to_f).reduce(:+)
     @total_open_spots = @open_spots.map(&:to_f).reduce(:+)
 
