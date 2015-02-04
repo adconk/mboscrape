@@ -14,7 +14,7 @@ post '/' do
   session.visit "https://clients.mindbodyonline.com/classic/home?studioid=#{params[:id]}"
 
   sleep 4
-  begin
+  #begin
     @title = session.title.sub(" Online","")
 
     puts "Grabbing the main web frame...."
@@ -70,7 +70,7 @@ post '/' do
     @total_open_spots = @open_spots.map(&:to_f).reduce(:+)
 
     erb :shows
-  rescue
-    erb :noresult
-  end
+  #rescue
+  #  erb :noresult
+  #end
 end
