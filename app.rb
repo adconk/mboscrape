@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'capybara/poltergeist'
 require 'uri'
 
 get '/' do
