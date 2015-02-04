@@ -59,7 +59,7 @@ total_open_spots = open_spots.map(&:to_f).reduce(:+)
 puts "#{title}"
 puts "Total Weekly Classes is #{classes.count}"
 puts "Instructor Count is #{instructors.uniq.count}"
-if (total_booked_spots != 0 ) && (total_open_spots != 0)
+if (total_booked_spots > 0 ) && (total_open_spots > 0)
   puts "#{(total_booked_spots / (total_booked_spots + total_open_spots) * 100).to_i}% full"
 end
 puts "\n"
