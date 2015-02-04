@@ -11,7 +11,8 @@ post '/' do
   session = Capybara::Session.new(:poltergeist)
 
   #@mbo_id = '3954'
-  session.visit "https://clients.mindbodyonline.com/ASP/home.asp?studioid=#{params[:id]}"
+  session.visit "https://clients.mindbodyonline.com/classic/home?studioid=#{params[:id]}"
+  
   sleep 4
   begin
     @title = session.title.sub(" Online","")
