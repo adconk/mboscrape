@@ -6,6 +6,6 @@ ruby '2.1.2'
 
 gem 'sinatra'
 gem 'nokogiri'
-gem 'poltergeist'
+gem 'poltergeist', '1.5.1'
 gem 'capybara'
 gem 'shotgun'

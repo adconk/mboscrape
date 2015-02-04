@@ -8,7 +8,7 @@
   <h2><%= @title %></h2>
   Total Weekly Classes is <%= @classes.count %><br />
   Instructor Count is <%= @instructors.uniq.count %><br />
-  <% if (@total_booked_spots != 0 ) && (@total_open_spots != 0) %>
+  <% if (@total_booked_spots > 0 ) && (@total_open_spots > 0) %>
   <%= "#{(@total_booked_spots / (@total_booked_spots + @total_open_spots) * 100).to_i}% full" %>
   <br />
   <% end %>
