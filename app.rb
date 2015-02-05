@@ -12,9 +12,9 @@ post '/' do
   #@mbo_id = '3954'
   session.visit "https://clients.mindbodyonline.com/classic/home?studioid=#{params[:id]}"
   sleep 4
-  puts "*****Start session HTML*******"
-  puts session.html
-  puts "*****End session HTML*******"
+  #puts "*****Show session HTML*******"
+  #puts session.html
+  #puts "*****Show session HTML*******"
   begin
     @title = session.title.sub(" Online","")
 
