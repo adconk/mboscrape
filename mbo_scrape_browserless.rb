@@ -6,7 +6,7 @@ session.visit "https://clients.mindbodyonline.com/classic/mainclass?studioid=#{@
 sleep 4
 
 title = session.title.sub(" Online","")
-mbo_studio_page = session.within_frame 'mainFrame' do
+mbo_studio_page = session.within_table.css('#classSchedule-mainTable') do
   Nokogiri::HTML(session.html)
 end
 
@@ -54,7 +54,6 @@ end
 
 total_booked_spots = booked_spots.map(&:to_f).reduce(:+)
 total_open_spots = open_spots.map(&:to_f).reduce(:+)
-
 
 puts "#{title}"
 puts "Total Weekly Classes is #{classes.count}"

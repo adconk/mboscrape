@@ -1,14 +1,22 @@
 require 'nokogiri'
 require 'open-uri'
-
 require 'watir-webdriver'
+require 'io/console'
+
+def continue_story
+  print "press any key"
+  STDIN.getch
+  print "            \r"
+end
 
 @mbo_id = ARGV[0]
-browser = Watir::Browser.new :firefox
-browser.goto "https://clients.mindbodyonline.com/classic/home?studioid=#{@mbo_id}"
-sleep 4
-
-data = Nokogiri::HTML(browser.frame(:name => "mainFrame").html)
+browser = Watir::Browser.new :chrome
+continue_story
+browser.goto "https://clients.mindbodyonline.com/classic/mainclass?studioid=#{@mbo_id}"
+continue_story
+browser.goto "https://clients.mindbodyonline.com/classic/mainclass?studioid=#{@mbo_id}&fl=true&tabID=7"
+continue_story
+data = Nokogiri::HTML(browser.html)
 
 even_rows = data.css('.evenRow')
 odd_rows = data.css('.oddRow')

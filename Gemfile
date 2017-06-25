@@ -2,10 +2,11 @@
 
 source 'https://rubygems.org'
 
-ruby '2.1.2'
+ruby '2.3.1'
 
 gem 'sinatra'
 gem 'nokogiri'
-gem 'poltergeist', '1.5.1'
-gem 'capybara', '2.1.0'
+gem 'poltergeist', '1.15.0'
+gem 'capybara'
+gem 'watir-webdriver'
 gem 'shotgun'
