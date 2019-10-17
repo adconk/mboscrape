@@ -1,5 +1,7 @@
 # Web Scraping: Getting Data from Awfully Complex Websites
+
 =========
+
 A tutorial demonstrating web scrapping of MindBodyOnline client webpages
 
 ## Intro
