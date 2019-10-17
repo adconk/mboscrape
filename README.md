@@ -146,7 +146,7 @@ ruby mbo_scrape_browserless.rb 3954
 
 If things go well, no browser will pop up this time, and you'll see the same results in the command line:
 
-{% highlight text %}
+```
 Kali Yoga Studio
 Total Weekly Classes is 42
 Instructor Count is 15
@@ -185,10 +185,10 @@ gem 'shotgun'
 
 There are two new gems here.  Sinatra, which is kind of like Rails, but much more lightweight.  Then shotgun, which makes it easy for us to run the app locally. We have one more file to setup so we can run our app. Create a file called "config.ru" and add the following:
 ```
-## tell Sinatra what to load
+# tell Sinatra what to load
 require './app'
 
-## tell Sinatra what to do
+# tell Sinatra what to do
 run Sinatra::Application
 ```
 
@@ -232,12 +232,12 @@ rescue
 end
 ```
 
-To round out our app before we attempt to run it, please take a look at the following markup that represents our basic HTML views. \\
-\\
-[input.erb](https://github.com/adconk/mboscrape/blob/master/views/input.erb) \\
-[shows.erb](https://github.com/adconk/mboscrape/blob/master/views/shows.erb) \\
-[noresult.erb](https://github.com/adconk/mboscrape/blob/master/views/noresult.erb) \\
-\\
+To round out our app before we attempt to run it, please take a look at the following markup that represents our basic HTML views.
+
+[input.erb](https://github.com/adconk/mboscrape/blob/master/views/input.erb)
+[shows.erb](https://github.com/adconk/mboscrape/blob/master/views/shows.erb)
+[noresult.erb](https://github.com/adconk/mboscrape/blob/master/views/noresult.erb)
+
 To prepare for Heroku and run locally, download the phantomjs linux binary from the [website](http://phantomjs.org/). Save it to a new "\bin" folder. Now you should be ready to run the app locally.
 
 ```
