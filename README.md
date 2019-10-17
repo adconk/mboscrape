@@ -185,10 +185,10 @@ gem 'shotgun'
 
 There are two new gems here.  Sinatra, which is kind of like Rails, but much more lightweight.  Then shotgun, which makes it easy for us to run the app locally. We have one more file to setup so we can run our app. Create a file called "config.ru" and add the following:
 ```
-# tell Sinatra what to load
+## tell Sinatra what to load
 require './app'
 
-# tell Sinatra what to do
+## tell Sinatra what to do
 run Sinatra::Application
 ```
 
@@ -210,9 +210,9 @@ post '/' do
 
 In the above code, you'll see "erb :input".  This is a view.  This is a good time to create a folder called "views", and files named "shows.erb", "noresult.erb", and "input.erb". The "input.erb" will be called get an HTTP GET request is sent to the root URL of our app. We also should change our MindBody URL to accept a parameter from our web app's URL, instead of a command line argument. When we do a HTTP POST request to the root URL of our app, we will be providing the Studio ID.
 
-``
+```
 session.visit "https://clients.mindbodyonline.com/ASP/home.asp?studioid=#{params[:id]}"
-``
+```
 
 We also need to change our ruby variables into class instance variables so that they will be available in our views.  This will have to be done through out the web app script.
 
@@ -316,8 +316,6 @@ Try out your web app via http://127.0.0.1:9393/ or whatever URL it states if dif
 ```
 
 So how do we get this up on Heroku?  You can create a Heroku app as [they recommend here](https://devcenter.heroku.com/articles/creating-apps).  The phantomjs 64 bit binary file saved in "/bin" is the key.  This [stackoverflow article](http://stackoverflow.com/questions/12495463/how-to-run-phantomjs-on-heroku) was helpful.  And you can deploy the app as a standard Ruby app through a git push. 
-
-Try our Studio ID of the day: 3954
 
 Currently Blocked:
 https://stackoverflow.com/questions/33225947/can-a-website-detect-when-you-are-using-selenium-with-chromedriver
